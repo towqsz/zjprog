@@ -130,8 +130,8 @@ class KataTest(unittest.TestCase):
                 log.debug("i: {}\n"
                           "Prv: {} \n Actual: {}".format(i, prv_itms[i].quality, item.quality))
                 self.assertTrue(
-                    quality_diff==1 if (prv_itms[i].quality==1)
-                    else quality_diff==2)
+                    quality_diff==2 if (prv_itms[i].sell_in>0)
+                    else quality_diff==4)
 
 
         log.debug("\n\nTest passed!\n\n")
