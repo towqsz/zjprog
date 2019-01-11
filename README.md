@@ -1,4 +1,4 @@
-# zjprog
+# tennis_kata
 
 [Originated from](https://github.com/emilybache/Tennis-Refactoring-Kata/tree/master/python)
 
@@ -10,11 +10,12 @@ Imagine you work for a consultancy company, and one of your colleagues has been 
 3. If at least three points have been scored by each player, and the scores are equal, the score is "Deuce".
 4. If at least three points have been scored by each side and a player has one more point than his opponent, the score of the game is "Advantage" for the player in the lead.
 
-## [Original file](https://github.com/ksazon/tennis_kata/blob/master/tennis.py)
-
+## [Original file](https://github.com/ksazon/tennis_kata/blob/measurments/tennis.py)
+###### [Tests](https://github.com/ksazon/tennis_kata/blob/measurments/tennis_unittest.py)
 Metryki. (obrazek wkleić?)
 
-## [First step](https://github.com/ksazon/tennis_kata/blob/master/tennis_v2.py)
+## [First step](https://github.com/ksazon/tennis_kata/blob/measurments/tennis_v2.py)
+###### [Tests](https://github.com/ksazon/tennis_kata/blob/measurments/tennis_unittest_v2.py)
 ```
 class Player:
 
@@ -24,7 +25,8 @@ class Player:
 ```
 Metryki.
 
-## [TennisGame v3](https://github.com/ksazon/tennis_kata/blob/master/tennis_v3.py)
+## [TennisGame v3](https://github.com/ksazon/tennis_kata/blob/measurments/tennis_v3.py)
+###### [Tests](https://github.com/ksazon/tennis_kata/blob/measurments/tennis_unittest_v3.py)
 ```
 class Score(object):
 
@@ -59,7 +61,7 @@ class Tie(Score):
 ```
 Metryki.
 
-## [TennisGame v4](https://github.com/ksazon/tennis_kata/blob/master/tennis_v4.py)
+## [TennisGame v4](https://github.com/ksazon/tennis_kata/blob/measurments/tennis_v4.py)
 
 ```
 class Win(Score):
@@ -73,6 +75,9 @@ class Win(Score):
         return "Win for " + self.player1.name if self.player1.score > self.player2.score else "Win for " + self.player2.name
 ```
 
-# [Refactor result](https://github.com/ksazon/tennis_kata/blob/master/tennis_v5.py)
+# [Refactor result](https://github.com/ksazon/tennis_kata/blob/measurments/tennis_v5.py)
+## [Tennis Classes](https://github.com/ksazon/tennis_kata/blob/measurments/tennis_classes.py)
 
 Metryki. 
+
+![alt text](https://www.thinktocode.com/wp-content/uploads/2018/02/red-green-refactor.png)
