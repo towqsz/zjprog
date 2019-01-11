@@ -10,12 +10,22 @@ Imagine you work for a consultancy company, and one of your colleagues has been 
 3. If at least three points have been scored by each player, and the scores are equal, the score is "Deuce".
 4. If at least three points have been scored by each side and a player has one more point than his opponent, the score of the game is "Advantage" for the player in the lead.
 
+![alt text](https://www.thinktocode.com/wp-content/uploads/2018/02/red-green-refactor.png)
+
 ## [Original file](https://github.com/ksazon/tennis_kata/blob/measurments/tennis.py)
 ###### [Tests](https://github.com/ksazon/tennis_kata/blob/measurments/tennis_unittest.py)
-Metryki. (obrazek wkleić?)
+###### [Metrics](https://github.com/ksazon/tennis_kata/blob/measurments/measurments/tennis-hal.txt)
+```
+tennis.py
+    M 16:4 TennisGame1.score - B (9)
+    C 3:0 TennisGame1 - A (4)
+    M 10:4 TennisGame1.won_point - A (2)
+    M 4:4 TennisGame1.__init__ - A (1)
+```
 
 ## [First step](https://github.com/ksazon/tennis_kata/blob/measurments/tennis_v2.py)
 ###### [Tests](https://github.com/ksazon/tennis_kata/blob/measurments/tennis_unittest_v2.py)
+###### [Metrics](https://github.com/ksazon/tennis_kata/blob/measurments/measurments/tennis_v2-hal.txt)
 ```
 class Player:
 
@@ -23,10 +33,21 @@ class Player:
         self.name = playerName
         self.score = playerScore
 ```
-Metryki.
+____________
+```
+tennis_v2.py
+    C 14:0 TennisGame1 - A (5)
+    C 4:0 Player - A (1)
+    
+    M 19:4 TennisGame1.score - B (9)
+    M 6:4 Player.__init__ - A (1)
+    M 10:4 Player.score_point - A (1)
+    M 15:4 TennisGame1.__init__ - A (1)
+```
 
 ## [TennisGame v3](https://github.com/ksazon/tennis_kata/blob/measurments/tennis_v3.py)
 ###### [Tests](https://github.com/ksazon/tennis_kata/blob/measurments/tennis_unittest_v3.py)
+###### [Metrics](https://github.com/ksazon/tennis_kata/blob/measurments/measurments/tennis_v3-hal.txt)
 ```
 class Score(object):
 
@@ -59,9 +80,29 @@ class Tie(Score):
         else:
             return Score.get_constant_value(self, self.player1.score) + "-All"
 ```
-Metryki.
+____________
+```
+tennis_v3.py
+    C 45:0 TennisGame1 - A (2)
+    C 4:0 Player - A (1)
+    C 13:0 Score - A (1)
+    C 31:0 Tie - A (1)
+    
+    M 55:4 TennisGame1.score - A (3)
+    M 38:4 Tie.get_score - A (2)
+    M 5:4 Player.__init__ - A (1)
+    M 9:4 Player.score_point - A (1)
+    M 14:4 Score.__init__ - A (1)
+    M 18:4 Score.__iter__ - A (1)
+    M 21:4 Score.get_constant_value - A (1)
+    M 32:4 Tie.__init__ - A (1)
+    M 35:4 Tie.is_current_score - A (1)
+    M 47:4 TennisGame1.__init__ - A (1)
+    M 51:4 TennisGame1.get_possible_scores - A (1)
+```
 
 ## [TennisGame v4](https://github.com/ksazon/tennis_kata/blob/measurments/tennis_v4.py)
+###### [Metrics](https://github.com/ksazon/tennis_kata/blob/measurments/measurments/tennis_v4-hal.txt)
 
 ```
 class Win(Score):
@@ -74,10 +115,40 @@ class Win(Score):
     def get_score(self):
         return "Win for " + self.player1.name if self.player1.score > self.player2.score else "Win for " + self.player2.name
 ```
+____________
+```
+tennis_v4.py
+    C 45:0 Win - A (2)
+    C 56:0 TennisGame1 - A (2)
+    C 4:0 Player - A (1)
+    C 13:0 Score - A (1)
+    C 31:0 Tie - A (1)
+
+    M 49:4 Win.is_current_score - A (3)
+    M 67:4 TennisGame1.score - A (3)
+    M 38:4 Tie.get_score - A (2)
+    M 52:4 Win.get_score - A (2)
+    M 5:4 Player.__init__ - A (1)
+    M 9:4 Player.score_point - A (1)
+    M 14:4 Score.__init__ - A (1)
+    M 18:4 Score.__iter__ - A (1)
+    M 21:4 Score.get_constant_value - A (1)
+    M 32:4 Tie.__init__ - A (1)
+    M 35:4 Tie.is_current_score - A (1)
+    M 46:4 Win.__init__ - A (1)
+    M 57:4 TennisGame1.__init__ - A (1)
+    M 61:4 TennisGame1.get_possible_scores - A (1)
+```
 
 # [Refactor result](https://github.com/ksazon/tennis_kata/blob/measurments/tennis_v5.py)
 ## [Tennis Classes](https://github.com/ksazon/tennis_kata/blob/measurments/tennis_classes.py)
+###### [Metrics](https://github.com/ksazon/tennis_kata/blob/measurments/measurments/tennis_v5-hal.txt)
+###### [Classes Metrics](https://github.com/ksazon/tennis_kata/blob/measurments/measurments/tennis_classes-hal.txt)
+```
+tennis_v5.py
+    C 6:0 TennisGame1 - A (2)
 
-Metryki. 
-
-![alt text](https://www.thinktocode.com/wp-content/uploads/2018/02/red-green-refactor.png)
+    M 19:4 TennisGame1.score - A (3)
+    M 7:4 TennisGame1.__init__ - A (1)
+    M 11:4 TennisGame1.get_possible_scores - A (1)
+```
